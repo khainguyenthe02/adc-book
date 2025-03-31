@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "title": "Ứng Dụng Tư Duy Mở Trong Công Việc",
+      "slug": "ung-dung-tu-duy-mo-trong-cong-viec",
+      "image": "../assets/b_udtdm.png",
+      "price": 111750,
+      "originalPrice": 162000
+    },
+    {
+      "id": 2,
+      "title": "Kỷ Luật Bản Thân - Sức Mạnh Lớn Từ Hành Động Nhỏ",
+      "slug": "ky-luat-ban-than",
+      "image": "/placeholder.svg?height=200&width=200",
+      "price": 119250,
+      "originalPrice": 159000
+    },
+    {
+      "id": 3,
+      "title": "Biết Nghĩ Nhiều Để Yêu Mình Đúng Cách",
+      "slug": "biet-nghi-nhieu-de-yeu-minh-dung-cach",
+      "image": "/placeholder.svg?height=200&width=200",
+      "price": 96000,
+      "originalPrice": 149000
+    },
+    {
+      "id": 4,
+      "title": "Giải Yêu Thương - Phương Pháp Chữa Lành Cảm Xúc",
+      "slug": "giai-yeu-thuong",
+      "image": "/placeholder.svg?height=200&width=200",
+      "price": 85000,
+      "originalPrice": 120000
+    },
+    {
+      "id": 5,
+      "title": "Tâm Lý Học Đám Đông",
+      "slug": "tam-ly-hoc-dam-dong",
+      "image": "/placeholder.svg?height=200&width=200",
+      "price": 75000,
+      "originalPrice": 95000
+    },
+    {
+      "id": 6,
+      "title": "Đắc Nhân Tâm",
+      "slug": "dac-nhan-tam",
+      "image": "/placeholder.svg?height=200&width=200",
+      "price": 88000,
+      "originalPrice": 110000
+    }
+  ]
