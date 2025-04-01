@@ -1,92 +1,92 @@
-import React, { useRef } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import React, { useRef, useEffect } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BookCard from './BookCard';
 
 const BookSection = ({ title, books }) => {
   const sliderRef = useRef(null);
 
+  // Calculate the scroll amount dynamically
+  const getScrollAmount = () => {
+    if (sliderRef.current) {
+      const itemWidth = sliderRef.current.querySelector('.flex-shrink-0').offsetWidth;
+      const gap = 16; // 1rem = 16px (assuming default root font size)
+      return (itemWidth + gap) * 3; // Width of 3 items + 2 gaps
+    }
+    return 660; // Fallback value
+  };
+
   const scrollLeft = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -960, behavior: 'smooth' });
+      sliderRef.current.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: 960, behavior: 'smooth' });
+      sliderRef.current.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     }
   };
 
+  // Ensure the slider doesn't show partial items on initial render
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = 0; // Reset to start
+    }
+  }, [books]);
+
   return (
-    <section style={{ padding: '3rem 0' }}>
+    <section className="py-5">
       <Container>
-        <h2
-          style={{
-            color: '#dc3545',
-            fontWeight: 'bold',
-            fontSize: '1.5rem',
-            marginBottom: '1.5rem',
-          }}
-        >
+        <h2 className="text-danger fw-bold fs-4 mb-4 ms-5 text-uppercase">
           {title}
         </h2>
 
-        <div style={{ display: 'flex', gap: '1rem', position: 'relative' }}>
-          {/* Banner bên trái */}
-          <div style={{ flexShrink: 0, width: '280px' }}>
+        <Row className="position-relative">
+          {/* Left Banner - 4 columns (1/3 of 12) */}
+          <Col md={4} className="flex-shrink-0">
             <img
-              src="/placeholder.svg?height=300&width=280"
+              src="../assets/gyt.jpg"
               alt="Banner"
-              style={{
-                width: '100%',
-                height: '300px',
-                objectFit: 'cover',
-                borderRadius: '8px',
-              }}
+              className="w-100 rounded"
+              style={{ height: '20rem', marginLeft: '10%', objectFit: 'contain' }}
             />
-          </div>
+          </Col>
 
-          {/* Slider bên phải */}
-          <div style={{ position: 'relative', flex: 1 }}>
+          {/* Right Slider - 8 columns (2/3 of 12) */}
+          <Col md={8} className="position-relative bg-light p-3 rounded overflow-hidden">
             <Button
               onClick={scrollLeft}
-              style={{
-                position: 'absolute',
-                left: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                backgroundColor: '#dc3545',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
-              }}
+              variant="danger"
+              className="position-absolute top-50 start-0 translate-middle-y rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+              style={{ width: '2.5rem', height: '2.5rem', zIndex: 50, left: '-1.25rem' }}
             >
-              <FaChevronLeft style={{ color: '#fff', fontSize: '1.2rem' }} />
+              <FaChevronLeft className="text-white fs-5" />
             </Button>
 
             <div
               ref={sliderRef}
+              className="d-flex gap-3 overflow-auto pb-3"
               style={{
-                display: 'flex',
-                gap: '20px',
-                overflowX: 'auto',
-                paddingBottom: '1rem',
-                scrollbarWidth: 'none', // Ẩn thanh cuộn trên Firefox
+                scrollbarWidth: 'none',
                 msOverflowStyle: 'none',
-                width: '960px', // 3 items: 3 * (200px + 20px gap) = 660px
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory',
               }}
             >
+              <style>
+                {`
+                  div::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}
+              </style>
+
               {books.map((book) => (
                 <div
                   key={book.id}
-                  style={{ minWidth: '300px', width: '200px', flexShrink: 0 }}
+                  className="flex-shrink-0"
+                  style={{ width: 'calc(33.33% - 1rem)', scrollSnapAlign: 'start' }}
                 >
                   <BookCard book={book} />
                 </div>
@@ -95,27 +95,14 @@ const BookSection = ({ title, books }) => {
 
             <Button
               onClick={scrollRight}
-              style={{
-                position: 'absolute',
-                right: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                backgroundColor: '#dc3545',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
-              }}
+              variant="danger"
+              className="position-absolute top-50 end-0 translate-middle-y rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+              style={{ width: '2.5rem', height: '2.5rem', right: '-1.25rem' }}
             >
-              <FaChevronRight style={{ color: '#fff', fontSize: '1.2rem' }} />
+              <FaChevronRight className="text-white fs-5" />
             </Button>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </section>
   );
