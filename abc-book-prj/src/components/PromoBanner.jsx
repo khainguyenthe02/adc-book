@@ -10,11 +10,11 @@ const PromoBanner = ({ title, backgroundImage, link }) => {
           <div 
             className="rounded overflow-hidden position-relative"
             style={{
-              height: '200px',
+              height: '400px',
               backgroundImage: `url(${backgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              backgroundColor: '#ffc107', // Fallback color
+              backgroundColor: '#ffc107',
             }}
           >
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">

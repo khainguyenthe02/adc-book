@@ -5,6 +5,7 @@ import PromoBanner from "../components/PromoBanner"
 import FeaturedSection from "../components/FeaturedSection"
 import "../index.css" 
 import newbooks from '../data/newbooks.json'
+import booksData from "../data/bookdata"
 
 // Dữ liệu mẫu cho sách nổi bật
 const featuredBooks = [
@@ -53,14 +54,14 @@ export default function Home() {
         <BookSection title="SÁCH MỚI" books={newbooks} />
 
         <PromoBanner
-          title="CÙNG CON KHÔN LỚN"
-          backgroundImage="/placeholder.svg?height=200&width=800"
+          backgroundImage="../assets/cung-con-khon-lon.jpg"
           link="/sach-cho-tre"
         />
 
         <FeaturedSection
           title="SÁCH NỔI BẬT"
           quote="Không bao giờ bạn có thể thoát khỏi trái tim mình. Vì vậy, tốt hơn hết là hãy lắng nghe những gì nó nói."
+          books={booksData}
         />
 
         <BookSection title="SÁCH NỔI BẬT" books={featuredBooks} />
