@@ -10,10 +10,10 @@ const BookSection = ({ title, books }) => {
   const getScrollAmount = () => {
     if (sliderRef.current) {
       const itemWidth = sliderRef.current.querySelector('.flex-shrink-0').offsetWidth;
-      const gap = 16; // 1rem = 16px (assuming default root font size)
-      return (itemWidth + gap) * 3; // Width of 3 items + 2 gaps
+      const gap = 16; 
+      return (itemWidth + gap) * 3;
     }
-    return 660; // Fallback value
+    return 660; 
   };
 
   const scrollLeft = () => {
@@ -28,7 +28,6 @@ const BookSection = ({ title, books }) => {
     }
   };
 
-  // Ensure the slider doesn't show partial items on initial render
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = 0; // Reset to start

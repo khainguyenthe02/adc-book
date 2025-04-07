@@ -6,11 +6,12 @@ const BookCard = ({ book }) => {
   const discountPercent = Math.round(((book.originalPrice - book.price) / book.originalPrice) * 100);
 
   return (
-    <Card
-      className="h-100 border-0 shadow-sm rounded"
-      onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px)')}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
-    >
+      <Card
+        className="h-100 border-0 shadow-sm rounded"
+        style={{ backgroundColor: 'rgba(0, 132, 202, 0.1)', transition: 'transform 0.3s' }}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px)')}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+      >
       <Link to={`/san-pham/${book.slug}`} className="text-decoration-none">
         <div className="position-relative">
           <Card.Img
@@ -18,7 +19,7 @@ const BookCard = ({ book }) => {
             src={book.image || "/placeholder.svg"}
             alt={book.title}
             className="p-2"
-            style={{ height: '200px', objectFit: 'contain', backgroundColor: '#f8f9fa' }}
+            style={{ height: '200px', objectFit: 'contain', }}
           />
           {discountPercent > 0 && (
             <Badge
@@ -29,7 +30,7 @@ const BookCard = ({ book }) => {
             </Badge>
           )}
         </div>
-        <Card.Body className="d-flex flex-column text-center">
+        <Card.Body className="d-flex flex-column text-center"  >
           <Card.Title
             className="fs-6 fw-bold text-dark mb-2"
             style={{

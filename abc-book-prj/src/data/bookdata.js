@@ -17,7 +17,6 @@ const booksData = [
       description:
       'Nếu một ngày, khi sự cố gắng theo kịp ước mơ, và ý thức sức mạnh của bạn, bạn sẽ không bao giờ bỏ lỡ những điều tốt đẹp trong cuộc sống.',
     },
-    // Add more books as needed
   ];
   
   export default booksData;
