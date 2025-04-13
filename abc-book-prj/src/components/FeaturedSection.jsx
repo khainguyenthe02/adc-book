@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 const FeaturedSection = ({ title, quote, books }) => {
   return (
     <section className="py-5">
-      <Container fluid className="px-0">
+      <Container fluid>
         {/* Title and Quote Section */}
         <div className="text-center mb-4">
           <h2 className="text-danger fw-bold d-inline-block">
@@ -22,38 +22,49 @@ const FeaturedSection = ({ title, quote, books }) => {
         )}
 
         {/* Books Section */}
-        <div className=" row mx-0 g-4">
+        <Row className="g-4 justify-content-center">
           {books.map((book, index) => (
-            <Col key={index} xs={12} sm={6} md={4} lg={3} className="px-2">
-              <div className="d-flex flex-column flex-md-row align-items-start h-100">
+            <Col key={index} xs={12} sm={6} md={4} lg={3}>
+              <div
+                className="p-3 h-100 rounded shadow-sm"
+                style={{
+                  backgroundColor: '#f8f9fa',
+                  textAlign: 'center',
+                }}
+              >
                 {/* Book Image */}
-                <div className="flex-shrink-0 mb-3 mb-md-0 me-md-3">
+                <div className="mb-3">
                   <img
                     src={book.image || '/placeholder.svg'}
                     alt={book.title}
                     className="rounded"
-                    style={{ width: '120px', height: '160px', objectFit: 'contain', backgroundColor: '#f8f9fa' }}
+                    style={{
+                      width: '120px',
+                      height: '160px',
+                      objectFit: 'contain',
+                      backgroundColor: '#ffffff',
+                    }}
                   />
                 </div>
 
                 {/* Book Details */}
-                <div className="flex-grow-1">
+                <div>
                   {/* Title */}
-                  <h5 className="fw-bold mb-1">{book.title}</h5>
+                  <h5 className="fw-bold mb-2">{book.title}</h5>
 
                   {/* Pricing */}
                   <div className="mb-2">
                     <span className="fs-5 fw-bold text-danger me-2">
                       {book.price.toLocaleString()}đ
                     </span>
-                    <span className="fs-5 text-muted text-decoration-line-through">
+                    <span className="fs-6 text-muted text-decoration-line-through">
                       {book.originalPrice.toLocaleString()}đ
                     </span>
                   </div>
 
                   {/* Description */}
                   <p
-                    className="text-muted mb-0"
+                    className="text-muted"
                     style={{
                       fontSize: '0.9rem',
                       lineHeight: '1.4',
@@ -70,7 +81,7 @@ const FeaturedSection = ({ title, quote, books }) => {
               </div>
             </Col>
           ))}
-        </div>
+        </Row>
       </Container>
     </section>
   );
