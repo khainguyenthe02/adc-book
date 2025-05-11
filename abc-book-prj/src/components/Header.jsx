@@ -39,11 +39,14 @@ const Header = () => {
   const handleCartClick = () => {
     navigate('/cart');
   };
+  const handleProfile = () => {
+    navigate('/profile');
+  }
 
   return (
     <header className="d-flex align-items-center justify-content-between p-3 bg-white border-bottom">
       {/* Logo Section */}
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center" onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="Logo" className="ms-4" style={{ width: '120px' }} />
       </div>
 
@@ -91,7 +94,10 @@ const Header = () => {
               3
             </span>
           </div>
-          <FaUser className="text-danger" style={{ fontSize: '20px' }} />
+          <div className='cursor-pointer' onClick={handleProfile}>
+            <FaUser  className="text-danger" style={{ fontSize: '20px' }} />
+          </div>
+          
         </div>
       </div>
     </header>
