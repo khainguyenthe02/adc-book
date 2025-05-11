@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const FollowOrder = () => {
   const navigate = useNavigate();
@@ -96,6 +97,7 @@ const FollowOrder = () => {
           </Button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

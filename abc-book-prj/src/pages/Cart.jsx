@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { FaTimes } from 'react-icons/fa';
 import { getCart } from '../utils/indexedDB'; // Import từ file indexedDB.js
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -242,6 +243,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
+          <Footer/>
     </div>
   );
 };

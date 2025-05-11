@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const ForgotPassword = () => {
   const [formData, setFormData] = useState({
@@ -82,6 +83,7 @@ const ForgotPassword = () => {
           </Form>
         </Col>
       </Row>
+      <Footer/>
     </div>
   );
 };

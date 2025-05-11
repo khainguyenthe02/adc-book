@@ -80,6 +80,7 @@ const Login = () => {
           </Form>
         </Col>
       </Row>
+      <Footer/>
     </div>
   );
 };

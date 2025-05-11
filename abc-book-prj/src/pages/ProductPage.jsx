@@ -5,6 +5,7 @@ import booksData from '../data/booksData';
 import bannerImage from '../../public/assets/slide4.jpg';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -260,6 +261,7 @@ const ProductPage = () => {
           </div>
         </Col>
       </Row>
+      <Footer/>
     </Container>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const ConfirmCheckout = () => {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ const ConfirmCheckout = () => {
         </Button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

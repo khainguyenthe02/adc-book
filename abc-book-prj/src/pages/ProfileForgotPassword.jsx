@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { FaUser, FaLock, FaMapMarkerAlt, FaCreditCard, FaUpload } from 'react-icons/fa'; // Import FaUpload
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ProfileForgotPassword = () => {
   const [passwordData, setPasswordData] = useState({
@@ -129,6 +130,7 @@ const ProfileForgotPassword = () => {
           </div>
         </Col>
       </Row>
+      <Footer/>
     </div>
   );
 };

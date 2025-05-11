@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FaMapMarkerAlt, FaClock, FaUser } from 'react-icons/fa'; // Import các biểu tượng từ react-icons
+import Footer from '../components/Footer';
 
 const Delivery = () => {
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ const Delivery = () => {
           Quay trở lại <span className="ms-2">→</span>
         </Button>
       </div>
+      <Footer/>
     </div>
   );
 };

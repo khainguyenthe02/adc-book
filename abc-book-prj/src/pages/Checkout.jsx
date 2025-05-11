@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getCart } from '../utils/indexedDB';
+import Footer from '../components/Footer';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -242,6 +243,7 @@ const Checkout = () => {
           Tiếp tục mua <span className="ms-2">→</span>
         </Button>
       </div>
+      <Footer/>
     </div>
   );
 };

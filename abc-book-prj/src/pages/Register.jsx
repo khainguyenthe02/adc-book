@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Register = () => {
   const [registerData, setRegisterData] = useState({
@@ -162,6 +163,7 @@ const Register = () => {
           </Form>
         </Col>
       </Row>
+      <Footer/>
     </div>
   );
 };

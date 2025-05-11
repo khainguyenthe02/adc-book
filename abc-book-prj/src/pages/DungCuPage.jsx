@@ -4,6 +4,7 @@ import BookCard from '../components/BookCard';
 import dungcuData from '../data/dungcuData';
 import bannerImage from '../../public/assets/slide4.jpg';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const DungCuPage = () => {
   const [filter, setFilter] = useState({
@@ -230,6 +231,7 @@ const DungCuPage = () => {
           </div>
         </Col>
       </Row>
+      <Footer/>
     </Container>
   );
 };

@@ -6,6 +6,7 @@ import BookCard from '../components/BookCard';
 import { FaFacebookF, FaTwitter, FaPinterest, FaEnvelope, FaShoppingCart } from 'react-icons/fa';
 import { useParams, useNavigate } from 'react-router-dom';
 import { saveCart } from '../utils/indexedDB'; // Import từ file indexedDB.js
+import Footer from '../components/Footer';
 
 const ProductDetail = () => {
   const { id } = useParams(); // Lấy id từ URL
@@ -304,6 +305,7 @@ const ProductDetail = () => {
           ))}
         </Row>
       </div>
+      <Footer/>
     </div>
   );
 };
