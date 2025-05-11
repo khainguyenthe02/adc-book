@@ -2,8 +2,10 @@ import React, { useRef, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BookCard from './BookCard';
+import { useNavigate } from 'react-router-dom';
 
 const BookSection = ({ title, books }) => {
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
 
   // Calculate the scroll amount dynamically
@@ -84,6 +86,7 @@ const BookSection = ({ title, books }) => {
               {books.map((book) => (
                 <div
                   key={book.id}
+                    onClick={() => navigate(`/product-detail/${book.id}`)}
                   className="flex-shrink-0"
                   style={{ width: 'calc(33.33% - 1rem)', scrollSnapAlign: 'start' }}
                 >

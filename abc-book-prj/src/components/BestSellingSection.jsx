@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import BookCard from './BookCard';
+import { useNavigate } from 'react-router-dom';
 
 const BestSellingSection = ({ title, books }) => {
+  const navigate = useNavigate();
   return (
-    <section className="py-5">
+    <section className="m-4">
       <Container>
         {/* Title */}
         <div className="text-center mb-4">
@@ -16,7 +18,12 @@ const BestSellingSection = ({ title, books }) => {
           {books.map((book, index) => (
             <Col key={index} xs={12} sm={6} md={4} lg={3}>
               {/* Use BookCard for each book */}
-              <BookCard book={book} />
+              <div
+                    onClick={() => navigate(`/product-detail/${book.id}`)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                <BookCard book={book} />
+                  </div>
             </Col>
           ))}
         </Row>

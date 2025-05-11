@@ -9,14 +9,14 @@ const BookCard = ({ book }) => {
     <Card
       className="h-100 border-0 shadow-sm rounded"
       style={{
-        backgroundColor: '#f8f9fa',
+        backgroundColor: '#D9D9D933',
         transition: 'transform 0.3s',
       }}
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
     >
-      <Link to={`/san-pham/${book.slug}`} className="text-decoration-none">
-        <div className="position-relative">
+    
+        <div className="position-relative" style={{backgroundColor: '#D9D9D920',}}>
           <Card.Img
             variant="top"
             src={book.image || '/placeholder.svg'}
@@ -25,7 +25,7 @@ const BookCard = ({ book }) => {
             style={{
               height: '200px',
               objectFit: 'contain',
-              backgroundColor: '#ffffff',
+              backgroundColor: '##D9D9D920',
               borderRadius: '8px',
             }}
           />
@@ -58,7 +58,7 @@ const BookCard = ({ book }) => {
             </span>
             {discountPercent > 0 && (
               <>
-                <span className="fs-6 text-danger mx-2">-{discountPercent}%</span>
+                {/* <span className="fs-6 text-danger mx-2">-{discountPercent}%</span> */}
                 <span className="fs-6 text-muted text-decoration-line-through">
                   {book.originalPrice.toLocaleString()}đ
                 </span>
@@ -66,7 +66,7 @@ const BookCard = ({ book }) => {
             )}
           </div>
         </Card.Body>
-      </Link>
+      
     </Card>
   );
 };

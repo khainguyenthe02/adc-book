@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Badge } from 'react-bootstrap';
 
 const FeaturedSection = ({ title, quote, books }) => {
   return (
@@ -24,23 +24,23 @@ const FeaturedSection = ({ title, quote, books }) => {
         {/* Books Section */}
         <Row className="g-4 justify-content-center">
           {books.map((book, index) => (
-            <Col key={index} xs={12} sm={6} md={4} lg={3}>
+            <Col key={index} xs={12} md={4}>
               <div
-                className="p-3 h-100 rounded shadow-sm"
+                onClick={() => window.location.href = `/product-detail/${book.id}`}
+                className="d-flex p-3 h-100 rounded shadow-sm"
                 style={{
-                  backgroundColor: '#f8f9fa',
-                  textAlign: 'center',
+                  backgroundColor: '##D9D9D920',
                 }}
               >
                 {/* Book Image */}
-                <div className="mb-3">
+                <div className="me-3">
                   <img
                     src={book.image || '/placeholder.svg'}
                     alt={book.title}
                     className="rounded"
                     style={{
-                      width: '120px',
-                      height: '160px',
+                      width: '200px',
+                      height: '299px',
                       objectFit: 'contain',
                       backgroundColor: '#ffffff',
                     }}
@@ -48,7 +48,7 @@ const FeaturedSection = ({ title, quote, books }) => {
                 </div>
 
                 {/* Book Details */}
-                <div>
+                <div className="flex-grow-1 align-self-center">
                   {/* Title */}
                   <h5 className="fw-bold mb-2">{book.title}</h5>
 
@@ -64,12 +64,12 @@ const FeaturedSection = ({ title, quote, books }) => {
 
                   {/* Description */}
                   <p
-                    className="text-muted"
+                    className="text-muted mb-3"
                     style={{
                       fontSize: '0.9rem',
                       lineHeight: '1.4',
                       display: '-webkit-box',
-                      WebkitLineClamp: 4,
+                      WebkitLineClamp: 3,
                       WebkitBoxOrient: 'vertical',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
@@ -77,6 +77,21 @@ const FeaturedSection = ({ title, quote, books }) => {
                   >
                     {book.description}
                   </p>
+
+                  {/* Tags */}
+                  <div>
+                    {book.tags?.map((tag, idx) => (
+                      <Badge
+                        key={idx}
+                        bg="light"
+                        text="dark"
+                        className="me-2 border"
+                        style={{ fontSize: '0.8rem' }}
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Col>
